@@ -20,7 +20,7 @@ export const scripts: ScriptsConfiguration = {
   deploy_sla: [
     // INDEX 0 | Should be BREACHED
     {
-      sloValue: 100,  // Breached as SL0 > SLi is false
+      sloValue: 100, // Breached as SL0 > SLi is false
       sloType: SLO_TYPE.GreaterThan,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -45,7 +45,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 1 | Should be HONORED
     {
-      sloValue: 0,  // Honored SLO > SLI of 0 is true
+      sloValue: 0, // Honored SLO > SLI of 0 is true
       sloType: SLO_TYPE.GreaterThan,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -120,7 +120,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 4 | Should be HONORED
     {
-      sloValue: 100,  // Honored as SLI 50 < SLO 100 is true
+      sloValue: 100, // Honored as SLI 50 < SLO 100 is true
       sloType: SLO_TYPE.SmallerThan,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -145,7 +145,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 5 | Should be BREACHED
     {
-      sloValue: 10,  // Breached as SLI 50 < SLO 10 is false
+      sloValue: 10, // Breached as SLI 50 < SLO 10 is false
       sloType: SLO_TYPE.SmallerThan,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -170,7 +170,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 6 | Should be HONORED
     {
-      sloValue: 60,  // Honored as SLI 50 < SLO 60 is true
+      sloValue: 60, // Honored as SLI 50 < SLO 60 is true
       sloType: SLO_TYPE.SmallerOrEqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -195,7 +195,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 7 | Should be BREACHED
     {
-      sloValue: 40,  // Breached as SLI 50 < SLO 60 is false
+      sloValue: 40, // Breached as SLI 50 < SLO 60 is false
       sloType: SLO_TYPE.SmallerOrEqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -220,7 +220,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 8 | Should be HONORED
     {
-      sloValue: 50,  // Breached as SLI 50 = SLO 50 is true
+      sloValue: 50, // Breached as SLI 50 = SLO 50 is true
       sloType: SLO_TYPE.EqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -245,7 +245,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 9 | Should be BREACHED
     {
-      sloValue: 51,  // Breached as SLI 50 = SLO 51 is false
+      sloValue: 51, // Breached as SLI 50 = SLO 51 is false
       sloType: SLO_TYPE.EqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -270,7 +270,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 10 | Should be HONORED
     {
-      sloValue: 51,  // Breached as SLI 50 != SLO 51 is true
+      sloValue: 51, // Breached as SLI 50 != SLO 51 is true
       sloType: SLO_TYPE.NotEqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -295,7 +295,7 @@ export const scripts: ScriptsConfiguration = {
     },
     // INDEX 11 | Should be BREACHED
     {
-      sloValue: 50,  // Breached as SLI 50 != SLO 50 is false
+      sloValue: 50, // Breached as SLI 50 != SLO 50 is false
       sloType: SLO_TYPE.NotEqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.WEEKLY,
@@ -442,6 +442,32 @@ export const scripts: ScriptsConfiguration = {
         serviceAddress: '0x0000000000000000000000000000000000000000',
         serviceTicker: 'CPI',
       },
-    }
+    },
+    // INDEX 17
+    {
+      // This SLA agrees that the price of a coin must be greater than or equal to 99% of an base currency
+      sloValue: 0.97,
+      sloType: SLO_TYPE.GreaterOrEqualTo,
+      whitelisted: false,
+      periodType: PERIOD_TYPE.MONTHLY,
+      messengerContract: CONTRACT_NAMES.PPMessenger,
+      initialPeriodId: 1,
+      finalPeriodId: 5,
+      extraData: [],
+      initialTokenSupply: '10000000',
+      initialTokenSupplyDivisor: 100,
+      deployerStakeTimes: 100,
+      notDeployerStakeTimes: 2,
+      leverage: 50, // 100 / 50 = 2% premium
+      serviceMetadata: {
+        serviceName: 'P-OPS',
+        serviceDescription: 'Official bDSLA Beta Partner.',
+        serviceImage:
+          'https://storage.googleapis.com/bdsla-incentivized-beta/validators/chainode.svg',
+        serviceURL: 'https://bdslaToken.network',
+        serviceAddress: 'one1kf42rl6yg2avkjsu34ch2jn8yjs64ycn4n9wdj',
+        serviceTicker: SENetworkNames[0],
+      },
+    },
   ],
 };
