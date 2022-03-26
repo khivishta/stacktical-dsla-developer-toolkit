@@ -13,7 +13,7 @@ import '@stacktical/dsla-contracts/contracts/StakeRegistry.sol';
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
 
-contract PPMessenger is ChainlinkClient, IMessenger, ReentrancyGuard {
+contract MPMessenger is ChainlinkClient, IMessenger, ReentrancyGuard {
     using SafeERC20 for ERC20;
 
     mapping(bytes32 => SLIRequest) public requestIdToSLIRequest;
@@ -109,7 +109,7 @@ contract PPMessenger is ChainlinkClient, IMessenger, ReentrancyGuard {
         );
         (
             uint256 sla_monitoring_start,
-            uint256 sla_monitoring_end
+            uint256 sla_monitoring_end,
         ) = periodRegistry.getPeriodStartAndEnd(sla.periodType(), _periodId);
         request.add(
             'sla_monitoring_start',

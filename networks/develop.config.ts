@@ -130,6 +130,11 @@ export const develop: NetworkUserConfig = {
         useCaseName: USE_CASES.PAR_PEG,
         externalAdapterUrl: 'http://host.docker.internal:6080',
       },*/
+      {
+        contract: CONTRACT_NAMES.MPMessenger,
+        useCaseName: USE_CASES.MULTICOIN_PEG,
+        externalAdapterUrl: 'http://host.docker.internal:6081',
+      },
     ],
     scripts: scripts,
   },

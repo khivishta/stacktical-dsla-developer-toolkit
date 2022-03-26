@@ -68,6 +68,7 @@ export enum USE_CASES {
   BASE_MESSENGER = 'base-messenger',
   PAR_PEG = 'par-peg-messenger',
   INFLATION = 'inflation',
+  MULTICOIN_PEG = 'multicoin-peg-messenger',
 }
 
 export enum NETWORKS {
