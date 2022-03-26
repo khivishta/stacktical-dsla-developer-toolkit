@@ -450,7 +450,7 @@ export const scripts: ScriptsConfiguration = {
       sloType: SLO_TYPE.GreaterOrEqualTo,
       whitelisted: false,
       periodType: PERIOD_TYPE.MONTHLY,
-      messengerContract: CONTRACT_NAMES.PPMessenger,
+      messengerContract: CONTRACT_NAMES.MPMessenger,
       initialPeriodId: 1,
       finalPeriodId: 5,
       extraData: [],
